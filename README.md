@@ -1,57 +1,22 @@
-# Project Name
+# 🔒 MCP Server Authentication Reference Collection
 
-(short, 1-3 sentenced, description of the project)
+Reference servers that demo how authentication works with the current [Model Context Protocol spec](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/).
 
-## Features
+>[!WARNING]
+>Code presented here is for **demo purposes only**. Your specific scenarios (including rules inside your enterprise, specific security controls, or other protection mechanisms) may differ from the ones that are outlined in this repository. **Always** conduct a security audit and threat modeling for any production and customer-facing assets that require authentication and authorization.
 
-This project framework provides the following features:
+## Scenarios
 
-* Feature 1
-* Feature 2
-* ...
+Servers above are designed for various runtime scenarios. They are tagged as follows:
 
-## Getting Started
+- Remote MCP servers: ![Remote MCP Server](https://img.shields.io/badge/MCP%20Server-Remote-blue)
+- Local MCP servers: ![Local MCP Server](https://img.shields.io/badge/MCP%20Server-Local-green)
+- Dual-purpose MCP servers (_can run locally or remotely_): ![Dual-purpose MCP Server](https://img.shields.io/badge/MCP%20Server-Dual-cyan)
 
-### Prerequisites
+## Supported identity providers
 
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+| Provider | Scenario | Server Type | Implementation | State |
+|:---------|:---------|:------------|:---------------|:------|
+| Entra ID | Confidential client, mapped to session token. | ![Dual-purpose MCP Server](https://img.shields.io/badge/MCP%20Server-Dual-cyan) | [`entra-id-cca-session`](/src/entra-id-cca-session/) | ![State: Prototype](https://img.shields.io/badge/State-Prototype-orange) |
+| Entra ID | Public client, using WAM | ![Local MCP Server](https://img.shields.io/badge/MCP%20Server-Local-green) | [`entra-id-local-wam`](/src/entra-id-local-wam/) | ![State: Prototype](https://img.shields.io/badge/State-Prototype-orange) |
+| GitHub   | GitHub application w/OAuth, mapped to session token. | ![Dual-purpose MCP Server](https://img.shields.io/badge/MCP%20Server-Dual-cyan) | [`github-app-session`](/src/github-app-session/) | ![State: Prototype](https://img.shields.io/badge/State-Prototype-orange) |
